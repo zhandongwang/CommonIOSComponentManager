@@ -31,7 +31,7 @@
         return;
     }
     NSString *className = NSStringFromClass(class);
-    NSString *protocolName = NSProtocolFromString(protocol);
+    NSString *protocolName = NSStringFromProtocol(protocol);
     
     if (!self.protocolsDict[protocolName]) {
         self.protocolsDict[protocolName] = className;

@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CommonIOSComponentManager"
-  s.version      = "0.0.2"
+  s.version      = "0.0.4"
   s.summary      = "CommonIOSComponentManager is used to manage basic components"
   s.description  = <<-DESC
                     CommonIOSComponentManager is used to manage basic components for iOS app
@@ -17,6 +17,5 @@ Pod::Spec.new do |s|
   s.source_files  = "Pod/Classes/**/*.{h,m}"
 
   s.requires_arc = true
-  #s.dependency 'CommonIOSNetworking'
 
 end
