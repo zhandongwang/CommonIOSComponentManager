@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
   s.source_files  = "Pod/Classes/**/*.{h,m}"
 
   s.requires_arc = true
-  s.dependency 'CommonIOSNetworking'
+  #s.dependency 'CommonIOSNetworking'
 
 end
