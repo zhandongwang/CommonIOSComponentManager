@@ -10,7 +10,7 @@
 
 @interface ZDWComponentManager ()
 
-@property (nonatomic, strong) NSMutableDictionary *protocols;
+@property (nonatomic, strong) NSMutableDictionary *protocolsDict;
 
 @end
 
@@ -33,8 +33,8 @@
     NSString *className = NSStringFromClass(class);
     NSString *protocolName = NSProtocolFromString(protocol);
     
-    if (!self.protocols[protocolName]) {
-        self.protocols[protocolName] = className;
+    if (!self.protocolsDict[protocolName]) {
+        self.protocolsDict[protocolName] = className;
     }
 }
 
@@ -42,18 +42,18 @@
     if (!protocol) {
         return nil;
     }
-    if (self.protocols[NSStringFromProtocol(protocol)]) {
-        NSString *className = self.protocols[NSStringFromProtocol(protocol)];
+    if (self.protocolsDict[NSStringFromProtocol(protocol)]) {
+        NSString *className = self.protocolsDict[NSStringFromProtocol(protocol)];
         return NSClassFromString(className);
     }
     return nil;
 }
 
-- (NSMutableDictionary *)protocols {
-    if (!_protocols) {
-        _protocols = [[NSMutableDictionary alloc] initWithCapacity:5];
+- (NSMutableDictionary *)protocolsDict {
+    if (!_protocolsDict) {
+        _protocolsDict = [[NSMutableDictionary alloc] initWithCapacity:5];
     }
-    return _protocols ;
+    return _protocolsDict ;
 }
 
 @end
