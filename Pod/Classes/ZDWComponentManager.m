@@ -1,23 +1,23 @@
 //
-//  ZDWComponentProtocol.m
+//  ZDWComponentManager.m
 //  Pods
 //
-//  Created by 王战东 on 16/11/23.
+//  Created by 凤梨 on 16/11/23.
 //
 //
 
-#import "ZDWComponentProtocol.h"
+#import "ZDWComponentManager.h"
 
-@interface ZDWComponentProtocol ()
+@interface ZDWComponentManager ()
 
 @property (nonatomic, strong) NSMutableDictionary *protocols;
 
 @end
 
-@implementation ZDWComponentProtocol
+@implementation ZDWComponentManager
 
 + (instancetype)instance {
-    static ZDWComponentProtocol *instance;
+    static ZDWComponentManager *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[self alloc] init];
@@ -32,7 +32,7 @@
     }
     NSString *className = NSStringFromClass(class);
     NSString *protocolName = NSProtocolFromString(protocol);
-
+    
     if (!self.protocols[protocolName]) {
         self.protocols[protocolName] = className;
     }
