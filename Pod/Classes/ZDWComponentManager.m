@@ -33,17 +33,17 @@
     NSString *className = NSStringFromClass(class);
     NSString *protocolName = NSStringFromProtocol(protocol);
     
-    if (!self.protocolsDict[protocolName]) {
+    if ([class conformsToProtocol:protocol] && !self.protocolsDict[protocolName]) {
         self.protocolsDict[protocolName] = className;
     }
 }
 
-- (Class)classForProtocol:(Protocol *)protocol; {
-    if (!protocol) {
+- (Class)classForProtocol:(NSString *)protocolName {
+    if (protocolName.length <= 0) {
         return nil;
     }
-    if (self.protocolsDict[NSStringFromProtocol(protocol)]) {
-        NSString *className = self.protocolsDict[NSStringFromProtocol(protocol)];
+    if (self.protocolsDict[protocolName]) {
+        NSString *className = self.protocolsDict[protocolName];
         return NSClassFromString(className);
     }
     return nil;

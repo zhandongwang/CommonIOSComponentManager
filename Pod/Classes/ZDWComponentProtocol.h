@@ -14,9 +14,12 @@
  */
 @protocol ZDWNetworking <NSObject>
 
-- (NSString *)requestPath;
-- (NSDictionary *)params;
-- (void)asyncRequestSuccess:(void(^)(id data))success failure:(void(^)(NSError *error))failure;
+- (void)setRequestType:(NSString *)type;
+- (void)setRequestPath:(NSString *)path;
+- (void)setRequestParams:(NSDictionary *)params;
+- (void)setRequestSuccessBlock:(void(^)(id data))success;
+- (void)setRequestFailureBlock:(void(^)(NSError *error))failure;
+- (void)sendRequest;
 
 @end
 

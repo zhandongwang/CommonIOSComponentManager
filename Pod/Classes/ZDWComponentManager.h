@@ -12,6 +12,6 @@
 
 + (instancetype)instance;
 - (void)registerClass:(Class)class forProtocol:(Protocol *)protocol ;
-- (Class)classForProtocol:(Protocol *)protocol;
+- (Class)classForProtocol:(NSString *)protocolName ;
 
 @end
