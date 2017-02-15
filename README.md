@@ -1,1 +1,1 @@
-# CommonIOSComponentManager
+# CCDProtocolManager
